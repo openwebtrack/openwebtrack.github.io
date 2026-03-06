@@ -1,0 +1,10 @@
+# OpenWebTrack Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://openwebtrack.github.io/sitemap.xml
+
+# Disallow admin/private paths (if any exist in the future)
+# Disallow: /admin/
+# Disallow: /api/
