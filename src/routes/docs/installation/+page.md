@@ -7,43 +7,9 @@ description: Learn how to install and set up OpenWebTrack
 
 OpenWebTrack can be deployed in multiple ways. Choose the one that best fits your infrastructure.
 
-## Quick Install (Recommended)
+## Quick Install
 
-The easiest way to get started is using the install script:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/openwebtrack/openwebtrack/refs/heads/main/install.sh | sudo sh
-```
-
-The installer will:
-
-1. Check for Docker and Docker Compose
-2. Create an installation directory
-3. Generate secure credentials (database password, auth secret, cron secret)
-4. Configure email provider (Resend, Maileroo, SMTP, or skip)
-5. Create a `compose.yml` file
-6. Start the services
-
-### Email Provider Configuration
-
-During installation, you'll be prompted to choose an email provider:
-
-| Option | Provider | Description                    |
-| ------ | -------- | ------------------------------ |
-| 1      | Resend   | Simple API-based email sending |
-| 2      | Maileroo | Alternative email API service  |
-| 3      | SMTP     | Your own SMTP server           |
-| 4      | Skip     | Configure later manually       |
-
-**Note**: Email configuration is required for weekly summary reports and traffic spike alerts.
-
-### Installation Directory
-
-By default, OpenWebTrack installs to `./openwebtrack`. You can specify a custom directory during installation.
-
-## Docker Compose (Manual)
-
-If you prefer manual setup, use this `compose.yml`:
+Create a `compose.yml` file with the following content:
 
 ```yaml
 services:
@@ -58,6 +24,8 @@ services:
             - ORIGIN=http://localhost:8424
             - AUTH_SECRET=STRONG_SECRET
             - DISABLE_REGISTER=false
+            # - AUTH_GOOGLE_CLIENT_ID=
+            # - AUTH_GOOGLE_CLIENT_SECRET=
             # Optional: Email configuration
             # - CRON_SECRET=STRING
             # - SENDER_EMAIL=openwebtrack@yourdomain.com
@@ -113,17 +81,19 @@ docker compose up -d
 
 ### Optional
 
-| Variable           | Description                                |
-| ------------------ | ------------------------------------------ |
-| `DISABLE_REGISTER` | Set to `true` to disable new registrations |
-| `CRON_SECRET`      | Secret for cron job authentication         |
-| `SENDER_EMAIL`     | Email address for notifications            |
-| `RESEND_API_KEY`   | API key for Resend email service           |
-| `MAILEROO_API_KEY` | API key for Maileroo email service         |
-| `SMTP_HOST`        | SMTP server hostname                       |
-| `SMTP_PORT`        | SMTP server port                           |
-| `SMTP_USER`        | SMTP username                              |
-| `SMTP_PASS`        | SMTP password                              |
+| Variable                    | Description                                |
+| --------------------------- | ------------------------------------------ |
+| `DISABLE_REGISTER`          | Set to `true` to disable new registrations |
+| `AUTH_GOOGLE_CLIENT_ID`     | Enable sign in/up with Google              |
+| `AUTH_GOOGLE_CLIENT_SECRET` | Enable sign in/up with Google              |
+| `CRON_SECRET`               | Secret for cron job authentication         |
+| `SENDER_EMAIL`              | Email address for notifications            |
+| `RESEND_API_KEY`            | API key for Resend email service           |
+| `MAILEROO_API_KEY`          | API key for Maileroo email service         |
+| `SMTP_HOST`                 | SMTP server hostname                       |
+| `SMTP_PORT`                 | SMTP server port                           |
+| `SMTP_USER`                 | SMTP username                              |
+| `SMTP_PASS`                 | SMTP password                              |
 
 ## Railway Deployment
 
