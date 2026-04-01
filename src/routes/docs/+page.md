@@ -21,6 +21,7 @@ OpenWebTrack is a free and open-source website analytics platform that gives you
 - **UTM Tracking**: Measure campaign performance with automatic UTM parameter extraction
 - **Traffic Spike Alerts**: Get instant notifications when your website experiences unusual traffic spikes
 - **Revenue Tracking**: Track payments and revenue per country, region, city, page, hostname, device, browser, OS, and referrer source
+- **Real-Time Map**: Visualize visitors and movements on an interactive globe.
 
 ### Notifications & Alerts
 
@@ -57,3 +58,4 @@ Ready to get started?
 - [Installation](/docs/installation) - Set up your instance
 - [Events](/docs/tracking/events) - Track custom events
 - [Revenue](/docs/tracking/revenue) - Track payments and revenue
+- [API] (/docs/api) - Integrate with your applications

@@ -72,6 +72,10 @@
 				{ title: 'Events', href: resolve('/docs/tracking/events') },
 				{ title: 'Revenue', href: resolve('/docs/tracking/revenue') }
 			]
+		},
+		{
+			title: 'API',
+			items: [{ title: 'Stats', href: resolve('/docs/api/stats') }]
 		}
 	];
 
