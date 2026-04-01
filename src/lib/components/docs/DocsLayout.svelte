@@ -3,12 +3,11 @@
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 
-	import { Button } from '$lib/components/ui/button';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import { Separator } from '$lib/components/ui/separator';
+	import { Button } from '$lib/components/ui/button';
 	import { cn } from '$lib/utils/helpers';
 	import Logo from '../Logo.svelte';
-	import SEO from '../SEO.svelte';
 
 	let { children, frontmatter } = $props();
 
@@ -162,13 +161,32 @@
 	let currentPath = $derived(page.url.pathname);
 </script>
 
-<SEO
-	title={frontmatter?.title ? `${frontmatter.title} - Documentation` : 'Documentation'}
-	description={frontmatter?.description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'}
-	url={`https://openwebtrack.github.io${page?.url?.pathname || '/docs'}`}
-/>
-
 <svelte:head>
+	<title>{frontmatter?.title ? `${frontmatter.title} - Documentation` : 'Documentation'}</title>
+	<meta name="description" content={frontmatter?.description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
+	<meta
+		name="keywords"
+		content="openwebtrack, web analytics, open-source, self-hosted, website analytics, alternative to google analytics, alternative to datafast, alternative to umami, alternative to plausible"
+	/>
+	<meta name="author" content="Ge0rg3e" />
+	<meta name="robots" content="index, follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="canonical" href="https://openwebtrack.github.io" />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content={frontmatter?.title ? `${frontmatter.title} - Documentation` : 'Documentation'} />
+	<meta property="og:description" content={frontmatter?.description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
+	<meta property="og:url" content={`https://openwebtrack.github.io${page?.url?.pathname || '/docs'}`} />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="OpenWebTrack" />
+	<meta property="og:locale" content="en_US" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={frontmatter?.title ? `${frontmatter.title} - Documentation` : 'Documentation'} />
+	<meta name="twitter:description" content={frontmatter?.description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
+	<meta name="twitter:creator" content="@ge0rg3e_dev" />
+
 	{@html prismTheme}
 </svelte:head>
 

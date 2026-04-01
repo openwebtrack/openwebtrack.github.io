@@ -1,10 +1,31 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import Logo from '$lib/components/Logo.svelte';
-	import SEO from '$lib/components/SEO.svelte';
 
 	let isFullscreen = $state(false);
 	let mockupContainer: HTMLDivElement | undefined = $state(undefined);
+
+	let translateX = $state(0);
+	let isDragging = $state(false);
+	let startX = 0;
+	let initialTranslateX = 0;
+
+	function handleMouseDown(e: MouseEvent) {
+		isDragging = true;
+		startX = e.pageX;
+		initialTranslateX = translateX;
+	}
+
+	function handleMouseMove(e: MouseEvent) {
+		if (!isDragging) return;
+		e.preventDefault();
+		const walk = e.pageX - startX;
+		translateX = initialTranslateX + walk;
+	}
+
+	function handleMouseUp() {
+		isDragging = false;
+	}
 
 	function toggleFullscreen() {
 		if (!document.fullscreenElement) {
@@ -54,6 +75,16 @@
 			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>`
 		},
 		{
+			title: 'Real-time Map',
+			description: 'Visualize your global traffic as it happens with an interactive 3D globe.',
+			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 21a9 9 0 0 0 0-18"/></svg>`
+		},
+		{
+			title: 'Embeddable Widgets',
+			description: 'Showcase your live visitor count or traffic stats directly on your website.',
+			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>`
+		},
+		{
 			title: 'Geolocation',
 			description: 'See where your users are coming from with country, region, and city data.',
 			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`
@@ -82,47 +113,49 @@
 			title: 'Deep Filtering',
 			description: 'Filter data by date, device, location, and more for detailed insights.',
 			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>`
+		},
+		{
+			title: 'Developer API',
+			description: 'Access your analytics data programmatically with our robust REST API.',
+			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`
 		}
 	];
 </script>
 
-<SEO
-	title="OpenWebTrack - Open-source Web Analytics"
-	description="Simple, self-hosted web analytics for modern websites. Track what matters with full control over your data. Real-time traffic, revenue tracking, custom events, and more."
-	url="https://openwebtrack.github.io"
-/>
-
 <svelte:head>
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "SoftwareApplication",
-			"name": "OpenWebTrack",
-			"applicationCategory": "AnalyticsApplication",
-			"operatingSystem": "Any",
-			"offers": {
-				"@type": "Offer",
-				"price": "0",
-				"priceCurrency": "USD"
-			},
-			"description": "Simple, self-hosted web analytics for modern websites. Track what matters with full control over your data.",
-			"url": "https://openwebtrack.github.io",
-			"codeRepository": "https://github.com/openwebtrack/openwebtrack",
-			"license": "https://www.gnu.org/licenses/agpl-3.0.html",
-			"featureList": [
-				"Real-time traffic monitoring",
-				"Self-hosted solution",
-				"Lightweight tracking script",
-				"Revenue tracking",
-				"Custom events",
-				"Traffic alerts",
-				"Geolocation data",
-				"UTM tracking",
-				"Weekly reports",
-				"Team collaboration"
-			]
-		}
-	</script>
+	<title>OpenWebTrack - Open-source Web Analytics</title>
+	<meta
+		name="description"
+		content="Simple, self-hosted web analytics for modern websites. Track what matters with full control over your data. Real-time traffic, revenue tracking, custom events, and more."
+	/>
+	<meta
+		name="keywords"
+		content="openwebtrack, web analytics, open-source, self-hosted, website analytics, alternative to google analytics, alternative to datafast, alternative to umami, alternative to plausible"
+	/>
+	<meta name="author" content="Ge0rg3e" />
+	<meta name="robots" content="index, follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="canonical" href="https://openwebtrack.github.io" />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="OpenWebTrack - Open-source Web Analytics" />
+	<meta
+		property="og:description"
+		content="Simple, self-hosted web analytics for modern websites. Track what matters with full control over your data. Real-time traffic, revenue tracking, custom events, and more."
+	/>
+	<meta property="og:url" content="https://openwebtrack.github.io" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="OpenWebTrack" />
+	<meta property="og:locale" content="en_US" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="OpenWebTrack - Open-source Web Analytics" />
+	<meta
+		name="twitter:description"
+		content="Simple, self-hosted web analytics for modern websites. Track what matters with full control over your data. Real-time traffic, revenue tracking, custom events, and more."
+	/>
+	<meta name="twitter:creator" content="@ge0rg3e_dev" />
 </svelte:head>
 
 <div class="min-h-screen">
@@ -316,25 +349,53 @@
 	</section>
 
 	<!-- Features -->
-	<section class="border-t border-white/5 px-4 py-20 sm:px-6">
-		<div class="mx-auto max-w-7xl">
+	<section class="border-t border-white/5 py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6">
 			<div class="mb-12 text-center">
 				<h2 class="mb-3 text-2xl font-semibold tracking-tight">Everything you need</h2>
 				<p class="text-white/50">Visitor tracking, session analytics, and real-time dashboards</p>
 			</div>
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{#each features as feature}
-					<div class="group rounded-xl border border-white/5 bg-white/2 p-6 transition-all hover:border-white/10 hover:bg-white/4">
-						<div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
-							{@html feature.icon}
+		</div>
+
+		<div class="relative flex overflow-hidden py-4">
+			<div onmousedown={handleMouseDown} onmousemove={handleMouseMove} onmouseup={handleMouseUp} onmouseleave={handleMouseUp} class="flex cursor-grab select-none active:cursor-grabbing">
+				<div class="flex gap-4 px-4 {isDragging ? '' : 'animate-marquee'}" style={isDragging ? `transform: translateX(${translateX}px)` : ''}>
+					{#each [...features, ...features] as feature}
+						<div class="flex w-[280px] flex-shrink-0 flex-col rounded-xl border border-white/5 bg-white/2 p-6 transition-all hover:border-white/10 hover:bg-white/4">
+							<div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
+								{@html feature.icon}
+							</div>
+							<h3 class="mb-2 text-left font-medium whitespace-normal">{feature.title}</h3>
+							<p class="text-left text-sm whitespace-normal text-white/50">{feature.description}</p>
 						</div>
-						<h3 class="mb-2 font-medium">{feature.title}</h3>
-						<p class="text-sm text-white/50">{feature.description}</p>
-					</div>
-				{/each}
+					{/each}
+				</div>
 			</div>
+
+			<!-- Gradient Overlays -->
+			<div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent"></div>
+			<div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent"></div>
 		</div>
 	</section>
+
+	<style>
+		@keyframes marquee {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(calc(-50% - 0.5rem));
+			}
+		}
+
+		.animate-marquee {
+			animation: marquee 40s linear infinite;
+		}
+
+		.animate-marquee:hover {
+			animation-play-state: paused;
+		}
+	</style>
 
 	<!-- Footer -->
 	<footer class="border-t border-white/5 px-4 py-8 sm:px-6">

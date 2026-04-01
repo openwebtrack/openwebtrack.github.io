@@ -23,8 +23,8 @@ Retrieve a summary of website traffic and performance for a specific date range.
 
 | Parameter     | Type     | Required | Description                                                     |
 | :------------ | :------- | :------- | :-------------------------------------------------------------- |
-| `startDate`   | `string` | No       | ISO 8601 date string (e.g., `2024-01-01`). Defaults to 24h ago. |
-| `endDate`     | `string` | No       | ISO 8601 date string (e.g., `2024-01-31`). Defaults to now.     |
+| `startDate`   | `string` | No       | ISO 8601 date string (e.g., `2026-03-01`). Defaults to 24h ago. |
+| `endDate`     | `string` | No       | ISO 8601 date string (e.g., `2026-03-31`). Defaults to now.     |
 | `granularity` | `string` | No       | `hourly`, `daily`, `weekly`, or `monthly`. Defaults to `daily`. |
 
 ### Example Request
@@ -44,13 +44,13 @@ curl "https://your-domain.com/api/v1/550e8400-e29b-41d4-a716-446655440000/stats?
 		"visitors": 380,
 		"bounceRate": 42,
 		"dateRange": {
-			"start": "2024-01-01T00:00:00.000Z",
-			"end": "2024-01-31T23:59:59.999Z"
+			"start": "2026-03-26T00:00:00.000Z",
+			"end": "2026-04-01T23:59:59.999Z"
 		}
 	},
 	"timeSeries": [
-		{ "date": "2024-01-01", "pageviews": 45 },
-		{ "date": "2024-01-02", "pageviews": 52 }
+		{ "date": "2026-03-26", "pageviews": 9 },
+		{ "date": "2026-03-27", "pageviews": 34 }
 	],
 	"topPages": [
 		{ "pathname": "/", "views": 500 },
