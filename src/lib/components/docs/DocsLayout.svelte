@@ -9,7 +9,7 @@
 	import { cn } from '$lib/utils/helpers';
 	import Logo from '../Logo.svelte';
 
-	let { children, frontmatter } = $props();
+	let { children, title, description }: { children: any; title?: string; description?: string } = $props();
 
 	let sidebarOpen = $state(false);
 
@@ -62,7 +62,8 @@
 			title: 'Getting Started',
 			items: [
 				{ title: 'Introduction', href: resolve('/docs') },
-				{ title: 'Installation', href: resolve('/docs/installation') }
+				{ title: 'Installation', href: resolve('/docs/installation') },
+				{ title: 'GDPR & Cookieless', href: resolve('/docs/gdpr-cookieless') }
 			]
 		},
 		{
@@ -162,8 +163,8 @@
 </script>
 
 <svelte:head>
-	<title>{frontmatter?.title ? `${frontmatter.title} - Documentation` : 'Documentation'}</title>
-	<meta name="description" content={frontmatter?.description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
+	<title>{title ? `${title} | OpenWebTrack Docs` : 'OpenWebTrack Docs'}</title>
+	<meta name="description" content={description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
 	<meta
 		name="keywords"
 		content="openwebtrack, web analytics, open-source, self-hosted, website analytics, alternative to google analytics, alternative to datafast, alternative to umami, alternative to plausible"
@@ -174,8 +175,8 @@
 	<link rel="canonical" href="https://openwebtrack.github.io" />
 
 	<!-- Open Graph -->
-	<meta property="og:title" content={frontmatter?.title ? `${frontmatter.title} - Documentation` : 'Documentation'} />
-	<meta property="og:description" content={frontmatter?.description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
+	<meta property="og:title" content={title ? `${title} | OpenWebTrack Docs` : 'OpenWebTrack Docs'} />
+	<meta property="og:description" content={description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
 	<meta property="og:url" content={`https://openwebtrack.github.io${page?.url?.pathname || '/docs'}`} />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="OpenWebTrack" />
@@ -183,8 +184,8 @@
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={frontmatter?.title ? `${frontmatter.title} - Documentation` : 'Documentation'} />
-	<meta name="twitter:description" content={frontmatter?.description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
+	<meta name="twitter:title" content={title ? `${title} | OpenWebTrack Docs` : 'OpenWebTrack Docs'} />
+	<meta name="twitter:description" content={description || 'OpenWebTrack documentation - Learn how to install, configure, and use our open-source web analytics platform.'} />
 	<meta name="twitter:creator" content="@ge0rg3e_dev" />
 
 	{@html prismTheme}
@@ -283,10 +284,7 @@
 		<main class="flex-1 px-6 py-6 pr-6 sm:px-8 sm:pr-8 lg:px-8">
 			<div class="mx-auto max-w-3xl">
 				<div class="mb-8">
-					<h1 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{frontmatter?.title || 'Documentation'}</h1>
-					{#if frontmatter?.description}
-						<p class="mt-2 text-muted-foreground">{frontmatter.description}</p>
-					{/if}
+					<h1 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{title || 'OpenWebTrack Docs'}</h1>
 				</div>
 				<Separator class="mb-8" />
 				<article class="prose prose-neutral dark:prose-invert max-w-none">

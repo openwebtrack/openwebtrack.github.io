@@ -65,6 +65,11 @@
 			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`
 		},
 		{
+			title: 'Cookieless Mode',
+			description: 'Opt into cookieless tracking to skip cookie banners and stay GDPR-compliant without asking for consent.',
+			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10"/><path d="M8 11h.01"/><path d="M11 8h.01"/><path d="M15 9h.01"/><path d="M9 15h.01"/><path d="m17 17 3 3"/><path d="m17 20 3-3"/></svg>`
+		},
+		{
 			title: 'Custom Events',
 			description: 'Track specific user interactions like clicks, signups, and goals.',
 			icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
@@ -208,6 +213,24 @@
 					>
 					Star on GitHub
 				</a>
+			</div>
+			<div class="mt-6 flex items-center justify-center gap-2 text-xs text-white/30">
+				<svg viewBox="0 0 20 20" width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<circle cx="10" cy="10" r="10" fill="#003399" />
+					<polygon transform="translate(10,3.67)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(13.17,4.52)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(15.48,6.83)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(16.33,10)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(15.48,13.17)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(13.17,15.48)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(10,16.33)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(6.83,15.48)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(4.52,13.17)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(3.67,10)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(4.52,6.83)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+					<polygon transform="translate(6.83,4.52)" fill="#FFCC00" points="0,-1.55 0.36,-0.49 1.48,-0.48 0.58,0.19 0.91,1.26 0,0.61 -0.91,1.26 -0.58,0.19 -1.48,-0.48 -0.36,-0.49" />
+				</svg>
+				Made in Europe
 			</div>
 		</div>
 
