@@ -372,12 +372,12 @@
 						{/if}
 					</button>
 				</div>
-				<!-- iframe Container with aspect ratio -->
 				<div class="relative w-full {isFullscreen ? 'flex-1' : 'aspect-[9/16] sm:aspect-[16/10]'}">
-					<iframe class="h-full w-full border-0" title="OpenWebTrack Dashboard Preview" src="https://owt-ge0rg3e.vercel.app/demo" loading="lazy"></iframe>
+					<!-- <iframe class="h-full w-full border-0" title="OpenWebTrack Dashboard Preview" src="https://owt-ge0rg3e.vercel.app/demo" loading="lazy"></iframe> -->
+					<img class="h-full w-full border-0" title="OpenWebTrack Dashboard Preview" src="/images/preview.png" loading="lazy" />
 				</div>
 			</div>
-			<p class="mt-4 text-center text-xs text-white/40 sm:text-sm">Live dashboard preview with real-time analytics</p>
+			<!-- <p class="mt-4 text-center text-xs text-white/40 sm:text-sm">Live dashboard preview with real-time analytics</p> -->
 		</div>
 	</section>
 

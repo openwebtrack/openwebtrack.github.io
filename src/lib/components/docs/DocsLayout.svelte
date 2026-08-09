@@ -75,7 +75,10 @@
 		},
 		{
 			title: 'API',
-			items: [{ title: 'Stats', href: resolve('/docs/api/stats') }]
+			items: [
+				{ title: 'Stats', href: resolve('/docs/api/stats') },
+				{ title: 'MCP Server', href: resolve('/docs/mcp') }
+			]
 		}
 	];
 
